@@ -31,7 +31,7 @@ pub fn function_definition(subscripts: &Subscripts, inner: TokenStream2) -> Toke
             #( #args: ndarray::ArrayBase<#storages, #dims> ),*
         ) -> ndarray::Array<T, #out_dim>
         where
-            T: ndarray::LinalgScalar,
+            T: ndarray::LinalgScalar + std::ops::AddAssign,
             #( #storages: ndarray::Data<Elem = T> ),*
         {
             #inner

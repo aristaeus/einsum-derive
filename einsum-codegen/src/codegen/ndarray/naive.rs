@@ -55,7 +55,7 @@ fn contraction_inner(subscripts: &Subscripts) -> TokenStream2 {
         output_indices.push(index.clone());
     }
     quote! {
-        #output_ident[(#(#output_indices),*)] = #inner_mul;
+        #output_ident[(#(#output_indices),*)] += #inner_mul;
     }
 }
 
